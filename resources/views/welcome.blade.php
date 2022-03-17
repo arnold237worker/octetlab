@@ -18,7 +18,7 @@
                             </p>
 
                             <div class="banner-content-btn">
-                                <a href=" {{route('a-propos')}} " class="learn-btn"> @lang('file.a-propos') </a>
+                                <a href="#demander-un-devis" class="learn-btn"> @lang('file.demander-un-devis') </a>
                                 <div class="banner-play-btn">
                                     <a href="https://www.youtube.com/watch?v=uYKDS1yDODY" class="play-btn">
                                         <i class='bx bx-play'></i> @lang('file.watch-video')
@@ -31,7 +31,7 @@
                     <div class="col-lg-5">
                         <div class="banner-img-2">
                             <div class="banner-img">
-                                <img src="assets/img/home1.png" alt="Banner Images">
+                                <img src=" {{asset('assets/img/home1.png')}} " alt="OctetLab">
                             </div>
                         </div>
                     </div>
@@ -63,6 +63,7 @@
         </div>
     </div>
     <!-- Banner Area End -->
+    
 
     <!-- About Area -->
     <div class="about-area pt-100 pb-70">
@@ -91,7 +92,7 @@
             </div>
         </div>
         <div class="about-shape">
-            <img src="assets/img/shape/right-side.png" alt="Shape Images">
+            <img src=" {{asset('assets/img/shape/right-side.png')}} " alt="Shape Images">
         </div>
     </div>
     <!-- About Area End -->
@@ -107,145 +108,132 @@
                 </p>
             </div>
            
-            <div class="service-slider owl-carousel owl-theme pt-45">
-                <div class="service-card">
-                    <a href="service-details.html">
-                        <h3>SEO Optimization</h3>
-                    </a>
-                    <p>
-                        It is a long established fact that area
-                        der will be distracted by the reada
-                        ble content of a page when looking.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <a href="service-details.html">
-                        <h3>Social Marketing</h3>
-                    </a>
-                    <p>
-                        It is a long established fact that area
-                        der will be distracted by the reada
-                        ble content of a page when looking.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <a href="service-details.html">
-                        <h3>Content Marketing</h3>
-                    </a>
-                    <p>
-                        It is a long established fact that area
-                        der will be distracted by the reada
-                        ble content of a page when looking.
-                    </p>
-                </div>
-
-                <div class="service-card">
-                    <a href="service-details.html">
-                        <h3>Analytical Analysis</h3>
-                    </a>
-                    <p>
-                        It is a long established fact that area
-                        der will be distracted by the reada
-                        ble content of a page when looking.
-                    </p>
-                </div>
+            <div class="row pt-45">
+                @foreach ($categories as $item)
+                    @php
+                        $titre = "nom_".session('locale');
+                        $contenu = "contenu_".session('locale');
+                    @endphp
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="blog-card">
+                            <div class="blog-img">
+                                <a href="{{route('services.details', $item->slug)}}">
+                                    <img src="  {{$item->image}} " style="height: 400px; object-fit: cover" alt="{{$item->$titre}}">
+                                </a>
+                            </div>
+                            <div class="blog-content">
+                                <a href="{{route('services.details', $item->slug)}}">
+                                    <h3> {{$item->$titre}} </h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
 
-            <div class="about-btn text-center">
-                <a href="#" class="default-btn">Voir tout</a>
-            </div>
+            
         </div>
     </section>
     <!-- Service Area End -->
 
     <!-- Faq Area -->
-    <div class="faq-area pt-5 pb-70">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-xxl-7">
-                    <div class="faq-img">
-                        <img src=" {{asset('assets/img/faq/1.png')}} " alt="fAQ Images">
+    <div class="faq-bg">
+        <div class="faq-bg-into pt-100 pb-70">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="faq-content">
+                            <span> @lang('file.what-make-us-exceptional') </span>
+                            <h2>@lang('file.what-make-us-exceptional-titre') </h2>
+                            <p>
+                                @lang('file.what-make-us-exceptional-contenu')
+                            </p>
+                        </div>
+
+                        <div class="faq-accordion">
+                            <ul class="accordion">
+                                <li class="accordion-item">
+                                    <a class="accordion-title active" href="javascript:void(0)">
+                                        <i class='bx bx-chevron-down'></i>
+                                        @lang('file.valeur1')
+                                    </a>
+    
+                                    <div class="accordion-content show">
+                                        <p> 
+                                            @lang('file.valeur1-contenu')
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="accordion-item">
+                                    <a class="accordion-title" href="javascript:void(0)">
+                                        <i class='bx bx-chevron-down'></i>
+                                        @lang('file.valeur2')
+                                    </a>
+    
+                                    <div class="accordion-content">
+                                        <p> 
+                                            @lang('file.valeur2-contenu')    
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="accordion-item">
+                                    <a class="accordion-title" href="javascript:void(0)">
+                                        <i class='bx bx-chevron-down'></i>
+                                        @lang('file.valeur3')
+                                    </a>
+    
+                                    <div class="accordion-content">
+                                        <p>
+                                            @lang('file.valeur3-contenu')
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>   
                     </div>
-                </div>
 
-                <div class="col-lg-6 col-xxl-5">
-                    <div class="faq-content">
-                        <span> @lang('file.what-make-us-exceptional') </span>
-                        <h2>We Are Top Ranked & Dedicated SEO Company</h2>
-                        <p>
-                            As opposed to using Content here, content here,
-                            making it look like readable English. Many desktop
-                            publishing packages and web page editors now use Lorem
-                            Ipsum as their default model text.
-                        </p>
-                    </div>
-
-                    <div class="faq-accordion">
-                        <ul class="accordion">
-                            <li class="accordion-item">
-                                <a class="accordion-title" href="javascript:void(0)">
-                                    <i class='bx bx-chevron-down'></i>
-                                    Great Research Exparts
-                                </a>
-
-                                <div class="accordion-content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipis
-                                        cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    </p>
+                    <div class="col-lg-6">
+                        <div class="faq-img">
+                            <img src=" {{asset('assets/img/faq/1.png')}} " alt="fAQ Images">
+                        </div>
+                        {{-- <div class="faq-content-text">
+                            <p>
+                               As opposed to using Content here, content here, 
+                               making it look like readable English. Many desktop publishing. <a href="#">See More</a>
+                            </p>
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-6 col-md-4">
+                                    <div class="single-counter">
+                                        <h3 class="color-black"><span class="counter">15</span></h3>
+                                        <p class="color-black font-size">Clientéle internationale</p>
+                                    </div>
                                 </div>
-                            </li>
-
-                            <li class="accordion-item">
-                                <a class="accordion-title" href="javascript:void(0)">
-                                    <i class='bx bx-chevron-down'></i>
-                                    Great Understanding
-                                </a>
-
-                                <div class="accordion-content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipis
-                                        cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    </p>
+            
+                                <div class="col-lg-4 col-sm-6 col-md-4">
+                                    <div class="single-counter">
+                                        <h3 class="color-black"><span class="counter">900</span>+</h3>
+                                        <p class="color-black font-size">Positionnement haut de gamme</p>
+                                    </div>
                                 </div>
-                            </li>
 
-                            <li class="accordion-item">
-                                <a class="accordion-title" href="javascript:void(0)">
-                                    <i class='bx bx-chevron-down'></i>
-                                    Top Ranking
-                                </a>
-
-                                <div class="accordion-content">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipis
-                                        cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    </p>
+                                <div class="col-lg-4 col-sm-12 col-md-4">
+                                    <div class="single-counter">
+                                        <h3 class="color-black"><span class="counter">25</span>+</h3>
+                                        <p class="color-black font-size">Service sur mesure</p>
+                                    </div>
                                 </div>
-                            </li>
-
-                            <li class="accordion-item">
-                                <a class="accordion-title active" href="javascript:void(0)">
-                                    <i class='bx bx-chevron-down'></i>
-                                    100% Trusted
-                                </a>
-
-                                <div class="accordion-content show">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipis
-                                        cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
+                            </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Faq Area End -->
+
 
     <!-- Portfolio Area -->
     <section class="portfolio-area portfolio-mt pt-100 pb-70">
@@ -258,65 +246,26 @@
                 </p>
             </div>
             <div class="portfolio-slider pt-45 owl-carousel owl-theme">
-                <div class="portfolio-item">
-                    <div class="portfolio-img">
-                        <a href="portfolio.html">
-                            <img src="assets/img/portfolio/1.jpg" alt="Portfolio Images">
-                        </a>
-                        <div class="portfolio-tag">
-                            <a href="#"><span>Marketing</span></a>
-                        </div>
-                        <div class="portfolio-content">
-                            <a href="portfolio.html"><h3>Social Marketing</h3></a>
-                            <i class='bx bxs-chevron-right'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-img">
-                        <a href="portfolio.html">
-                            <img src="assets/img/portfolio/2.jpg" alt="Portfolio Images">
-                        </a>
-                        <div class="portfolio-tag">
-                            <a href="#"><span>Research</span></a>
-                        </div>
-                        <div class="portfolio-content">
-                            <a href="portfolio.html"><h3>Data Analysis</h3></a>
-                            <i class='bx bxs-chevron-right'></i>
+                @foreach ($realisations as $item)
+                    @php
+                        $titre = "nom_".session('locale');
+                        $contenu = "contenu_".session('locale');
+                    @endphp
+                    <div class="portfolio-item">
+                        <div class="portfolio-img">
+                            <a href="{{route('realisations.details', $item->slug)}}">
+                                <img src="{{$item->images->first()->path}}" style="width: 510px; height: 400px; object-fit: cover" alt="Portfolio Images">
+                            </a>
+                            <div class="portfolio-tag">
+                                <a href="#"><span> {{$item->service->$titre}} </span></a>
+                            </div>
+                            <div class="portfolio-content">
+                                <a href="{{route('realisations.details', $item->slug)}}"><h3> {{$item->$titre}} </h3></a>
+                                <i class='bx bxs-chevron-right'></i>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-img">
-                        <a href="portfolio.html">
-                            <img src="assets/img/portfolio/3.jpg" alt="Portfolio Images">
-                        </a>
-                        <div class="portfolio-tag">
-                            <a href="#"><span>Optimizing</span></a>
-                        </div>
-                        <div class="portfolio-content">
-                            <a href="portfolio.html"><h3>SEO Optimization</h3></a>
-                            <i class='bx bxs-chevron-right'></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-img">
-                        <a href="portfolio.html">
-                            <img src="assets/img/portfolio/5.jpg" alt="Portfolio Images">
-                        </a>
-                        <div class="portfolio-tag">
-                            <a href="#"><span>Development</span></a>
-                        </div>
-                        <div class="portfolio-content">
-                            <a href="portfolio.html"><h3>App Development</h3></a>
-                            <i class='bx bxs-chevron-right'></i>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -326,35 +275,24 @@
     <div class="counter-area-2 pt-100 pb-70">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-sm-6 col-md-3">
+                <div class="col-lg-4 col-sm-6 col-md-4">
                     <div class="single-counter">
                         <i class='flaticon-success'></i>
-                        <h3><span class="counter">15</span></h3>
-                        <p>@lang('file.years-experience')</p>
+                        <p style="font-size: 18px; font-weight: 600"> @lang("file.clientele-internationale") </p>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6 col-md-3">
+                <div class="col-lg-4 col-sm-6 col-md-4">
                     <div class="single-counter">
                         <i class='flaticon-launch'></i>
-                        <h3><span class="counter">900</span>+</h3>
-                        <p>@lang('file.project-done')</p>
+                        <p style="font-size: 18px; font-weight: 600">@lang("file.positionnement-haut-de-gamme")</p>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6 col-md-3">
-                    <div class="single-counter">
-                        <i class='flaticon-customer'></i>
-                        <h3><span class="counter">800</span>+</h3>
-                        <p>@lang('file.happy-customers')</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-md-3">
+                <div class="col-lg-4 col-sm-6 col-md-4">
                     <div class="single-counter">
                         <i class='flaticon-team-building'></i>
-                        <h3><span class="counter">25</span>+</h3>
-                        <p>@lang('file.experts-members')</p>
+                        <p style="font-size: 18px; font-weight: 600"> @lang('file.service-sur-mesure') </p>
                     </div>
                 </div>
             </div>
@@ -363,7 +301,7 @@
     <!-- Counter Area End -->
 
     <!-- Price Area -->
-    <div class="price-area pt-100 pb-70">
+    {{-- <div class="price-area pt-100 pb-70">
         <div class="container">
             <div class="section-title text-center">
                 <span> @lang('file.nos-packages') </span>
@@ -372,7 +310,7 @@
                     @lang('file.nos-packages-description')
                 </p>
             </div>
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-lg-12 pt-45">
                     <div class="tabs-item-list">
                         <ul id="tabs-item" class="text-center">
@@ -385,7 +323,7 @@
                         </ul>
                     </div>
                 </div>
-            </div> --}}
+            </div>
 
             <div id="prices-content">
                 <div id="monthly" class="active prices-content-area animated">
@@ -447,7 +385,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Price Area End -->
 
     <!-- Member Area -->
@@ -457,22 +395,30 @@
                 <span> @lang('file.our-experts-members') </span>
                 <h2>@lang('file.our-experts-members-title')</h2>
                 <p>
-                    It is a long established fact that a reader will be distracted 
-                    by the readable content of a page when looking at its layout.
+                    @lang('file.our-experts-members-content')
                 </p>
             </div>
-            <div class="row pt-45">
-                <div class="col-lg-3 col-sm-6">
+            <div class="row pt-45 text-center">
+                @foreach ($equipes as $item)
+                   @php
+                       $poste = "poste_".session('locale');
+                   @endphp
+                <div class="col-sm-3 mx-auto">
                     <div class="member-card">
                         <div class="member-img">
-                            <a href="members.html">
-                                <img src="assets/img/member/1.jpg" alt="Member Images">
+                            <a href="#">
+                                @if ($item->image)
+                                 <img src=" {{$item->image}} " alt=" {{$item->nom}} " style="height: 400px; object-fit: cover" >
+                                @else
+                                <img src="assets/img/member/1.jpg" alt="{{$item->nom}}">
+                                @endif
                             </a>
                             <div class="member-content">
-                                <a href="members.html">
-                                    <h3>John Doe</h3>
+                                <a href="#">
+                                    <h3> {{$item->nom}} </h3>
                                 </a>
-                                <span>Head of Bonsa</span>
+                                <span style="font-weight: 600; font-size: 17px"> {{$item->$poste}} </span> <br/>
+                                <i style="font-size: 14px"> {{$item->email}} </i>
                                 <div class="social-icon">
                                     <ul>
                                         <li>
@@ -496,190 +442,136 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="member-card">
-                        <div class="member-img">
-                            <a href="members.html">
-                                <img src="assets/img/member/2.jpg" alt="Member Images">
-                            </a>
-                            <div class="member-content">
-                                <a href="members.html">
-                                    <h3>John Smith</h3>
-                                </a>
-                                <span>SEO Expert</span>
-                                <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-facebook'></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-twitter' ></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-instagram' ></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="member-card">
-                        <div class="member-img">
-                            <a href="members.html">
-                                <img src="assets/img/member/3.jpg" alt="Member Images">
-                            </a>
-                            <div class="member-content">
-                                <a href="members.html">
-                                    <h3>Evanaa</h3>
-                                </a>
-                                <span>Content Writer</span>
-                                <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-facebook'></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-twitter' ></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-instagram' ></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="member-card">
-                        <div class="member-img">
-                            <a href="members.html">
-                                <img src="assets/img/member/4.jpg" alt="Member Images">
-                            </a>
-                            <div class="member-content">
-                                <a href="members.html">
-                                    <h3>Knot Doe</h3>
-                                </a>
-                                <span>Marketing Expert</span>
-                                <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-facebook'></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-twitter' ></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-instagram' ></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <div class="member-shape-2">
-            <img src="assets/img/shape/member-shape-2.png" alt="Members Images">
+            <img src=" {{asset('assets/img/shape/member-shape-2.png')}} " alt="Members Images">
         </div>
         
     </div>
     <!-- Member Area End -->
 
-    <!-- Client Area -->
-    <div class="client-area pb-70">
-        <div class="container-fluid p-0">
+    <!-- Testimonial Area -->
+    <div class="testimonial-area pt-30 pb-70">
+        <div class="container-fluid" id="demander-un-devis">
             <div class="section-title text-center">
-                <span>Testimonial</span>
-                <h2>Our Clients Feedback</h2>
+                <span> @lang('file.temoignage') </span>
+                <h2> @lang('file.temoignage-titre') </h2>
                 <p>
-                    It is a long established fact that a reader will be distracted by 
-                    the readable content of a page when looking at its layout.
+                    @lang('file.temoignage-content')
                 </p>
             </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-xxl-6">
+                    <div class="testimonial-slider">
+                        <div class="testimonial-icon">
+                            <i class='bx bxs-quote-alt-right'></i>
+                        </div>
 
-            <div class="client-slider owl-carousel owl-theme">
-                <div class="client-item">
-                    <div class="client-item-img">
-                        <img src="assets/img/testimonial/t1.png" alt="Testimonial Images">
+                        <div class="testimonial-item-slider owl-carousel owl-theme">
+                            @foreach ($temoignages as $item)
+                                @php
+                                    $contenu = "contenu_".session('locale');
+                                @endphp
+                                <div class="testimonial-item">
+                                    @if ($item->image)
+                                        <div class="testimonial-item-img">
+                                            <img src=" {{$item->image}} " alt="Testimonial Images">
+                                        </div>
+                                    @endif
+                                    <h3> {{$item->nom}} </h3>
+                                    <p>
+                                        {{$item->$contenu}} 
+                                    </p>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
-                    <h3>John Doe</h3>
-                    <p>
-                        Restaurants range from inexpensive and informal lunching or dining places 
-                        catering to people working nearby, with modest food served in simple settings at low prices.
-                    </p>
                 </div>
 
-                <div class="client-item">
-                    <div class="client-item-img">
-                        <img src="assets/img/testimonial/t4.png" alt="Testimonial Images">
-                    </div>
-                    <h3>Knot Doe</h3>
-                    <p>
-                        Restaurants range from inexpensive and informal lunching or dining places 
-                        catering to people working nearby, with modest food served in simple settings at low prices.
-                    </p>
-                </div>
+                <div class="col-lg-6 col-xxl-6">
+                    <!-- Start Sign In Area -->
+                    <div class="contact-wrap-form log-in-width">
+                        <form method="post" action=" {{route('demander-un-devis')}} " >
+                            @csrf
+                            <p style="font-size: 20px; font-weight: 600"> @lang('file.demander-un-devis') </p>
+                            <p> @lang('file.demander-un-devis-titre') </p>
+                            <div class="row">
 
-                <div class="client-item">
-                    <div class="client-item-img">
-                        <img src="assets/img/testimonial/t5.png" alt="Testimonial Images">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <input class="form-control" requidred type="text" name="nom" placeholder=" @lang('file.nom')* ">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="email" required name="email" placeholder=" @lang('file.email')* ">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <select name="service" required id="" class="form-control">
+                                             <option value=""> @lang('file.service-souhaite')* </option>
+                                                @foreach ($services as $item)
+                                                @php
+                                                    $nom = "nom_".session('locale');
+                                                @endphp
+                                                <option value=" {{$item->id}} "> {{$item->$nom}} </option>
+                                                    
+                                                @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="budget" placeholder=" @lang('file.budget') ">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea name="contenu" class="form-control" placeholder=" @lang('file.message')* " id="" cols="30" rows="4"></textarea>
+                                    </div>
+                                    @if(config('services.recaptcha.key'))
+                                                                    <div class="g-recaptcha"
+                                                                        data-sitekey="{{config('services.recaptcha.key')}}">
+                                                                    </div>
+                                                                @endif <br>
+                                </div>
+
+                                <div class="col-12 text-center">
+                                    <button class="default-btn btn-two" type="submit">
+                                       @lang('file.envoyer')
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <h3>John Smith</h3>
-                    <p>
-                        Restaurants range from inexpensive and informal lunching or dining places 
-                        catering to people working nearby, with modest food served in simple settings at low prices.
-                    </p>
-                </div>
-                <div class="client-item">
-                    <div class="client-item-img">
-                        <img src="assets/img/testimonial/t3.png" alt="Testimonial Images">
-                    </div>
-                    <h3>Evanaa</h3>
-                    <p>
-                        Restaurants range from inexpensive and informal lunching or dining places 
-                        catering to people working nearby, with modest food served in simple settings at low prices.
-                    </p>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Client Area End -->
 
+        <div class="shape-left">
+            <img src=" {{asset('assets/img/testimonial/shape-left.png')}} " alt="Images">
+        </div>
+        <div class="shape-right">
+            <img src=" {{asset('assets/img/testimonial/shape-right.png')}} " alt="Images">
+        </div>
+    </div>
+    <!-- Testimonial Area End -->
+    
+    
 
     <!-- Subscribe Area -->
     <div class="subscribe-area ptb-100">
         <div class="container">
             <div class="subscribe-content">
-                <h2>Subscribe Bonsa for Daily Update</h2>
+                <h2 class="text-center"> @lang('file.newsletter') </h2>
                 <form class="subscribe-form">
-                    <input type="email" class="form-control" placeholder="Enter your email">
+                    @csrf
+                    <input type="email" required class="form-control" placeholder=" @lang('file.email') ">
                     <button class="submit-btn" type="submit">
-                        Subscribe
+                        @lang('file.souscrire')
                     </button>
                 </form>
             </div>

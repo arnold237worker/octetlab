@@ -1,19 +1,23 @@
-@extends('layout')
+@extends('layout2')
+
+@section('title')
+OCTETLAB - @lang('file.quisommesnous')
+@endsection
 
 @section('content')
     <!-- Inner Banner -->
     <div class="inner-banner inner-bg1">
         <div class="container">
             <div class="inner-title text-center">
-                <h3>About Us</h3>
+                <h3> @lang('file.a-propos') </h3>
                 <ul>
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="{{ route('accueil') }}"> @lang('file.accueil') </a>
                     </li>
                     <li>
                         <i class='bx bxs-chevrons-right'></i>
                     </li>
-                    <li>About</li>
+                    <li>@lang('file.a-propos') </li>
                 </ul>
             </div>
         </div>
@@ -21,289 +25,359 @@
     <!-- Inner Banner End -->
 
     <!-- About Area -->
-    <div class="about-area pt-100 pb-70">
+    <div class="about-area pt-100 pb-70" id="presentation">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-xxl-6 ps-0">
                     <div class="about-img">
-                        <img src="assets/img/about/1.png" alt="About Images">
+                        <img src=" {{asset('assets/img/about/1.png')}} " alt="About Images">
                     </div>
                 </div>
 
                 <div class="col-lg-7 col-xxl-6">
                     <div class="about-content about-width">
-                        <span>About Us</span>
-                        <h2>We Are Helping People to Reach Their Customer Since 2005</h2>
-                        <p>
-                            It is a long established fact that a reader will be distracted
-                            by the readable content of a page when looking at its layout.
-                            The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
+                        <span> OCTETLAB</span>
+                        <h2> @lang('file.quisommesnous')</h2>
+                        <p class="justify">
+                            @lang('file.histoire1') </p>
+                        <p class="justify">  
+                             @lang('file.histoire2')
                         </p>
-                        <p>
-                            As opposed to using 'Content here, content here', making it look
-                            like readable English. Many desktop publishing packages and web
-                            page editors now use Lorem Ipsum as their default model text,
-                            and a search for 'lorem ipsum' will uncover many web sites still
-                            in their infancy. Various versions have evolved over the years.
+                        <p class="justify">
+                            @lang('file.histoire3')
                         </p>
-
-                        <div class="about-btn">
-                            <a href="#" class="default-btn">Know More</a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="about-shape">
-            <img src="assets/img/shape/right-side.png" alt="Shape Images">
+            <img src=" {{asset('assets/img/shape/right-side.png')}} " alt="Shape Images">
         </div>
     </div>
     <!-- About Area End -->
 
-    <!-- Price Area -->
-    <div class="price-area price-shape pt-100 pb-70">
+    <!-- Faq Area -->
+    <div class="faq-bg">
+        <div class="faq-bg-into pt-100 pb-70">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="faq-content">
+                            <span> @lang('file.what-make-us-exceptional') </span>
+                            <h2>@lang('file.what-make-us-exceptional-titre') </h2>
+                            <p>
+                                @lang('file.what-make-us-exceptional-contenu')
+                            </p>
+                        </div>
+
+                        <div class="faq-accordion">
+                            <ul class="accordion">
+                                <li class="accordion-item">
+                                    <a class="accordion-title active" href="javascript:void(0)">
+                                        <i class='bx bx-chevron-down'></i>
+                                        @lang('file.valeur1')
+                                    </a>
+    
+                                    <div class="accordion-content show">
+                                        <p> 
+                                            @lang('file.valeur1-contenu')
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="accordion-item">
+                                    <a class="accordion-title" href="javascript:void(0)">
+                                        <i class='bx bx-chevron-down'></i>
+                                        @lang('file.valeur2')
+                                    </a>
+    
+                                    <div class="accordion-content">
+                                        <p> 
+                                            @lang('file.valeur2-contenu')    
+                                        </p>
+                                    </div>
+                                </li>
+
+                                <li class="accordion-item">
+                                    <a class="accordion-title" href="javascript:void(0)">
+                                        <i class='bx bx-chevron-down'></i>
+                                        @lang('file.valeur3')
+                                    </a>
+    
+                                    <div class="accordion-content">
+                                        <p>
+                                            @lang('file.valeur3-contenu')
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>   
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="faq-img">
+                            <img src=" {{asset('assets/img/faq/1.png')}} " alt="fAQ Images">
+                        </div>
+                        {{-- <div class="faq-content-text">
+                            <p>
+                               As opposed to using Content here, content here, 
+                               making it look like readable English. Many desktop publishing. <a href="#">See More</a>
+                            </p>
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-6 col-md-4">
+                                    <div class="single-counter">
+                                        <h3 class="color-black"><span class="counter">15</span></h3>
+                                        <p class="color-black font-size">Clientéle internationale</p>
+                                    </div>
+                                </div>
+            
+                                <div class="col-lg-4 col-sm-6 col-md-4">
+                                    <div class="single-counter">
+                                        <h3 class="color-black"><span class="counter">900</span>+</h3>
+                                        <p class="color-black font-size">Positionnement haut de gamme</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-sm-12 col-md-4">
+                                    <div class="single-counter">
+                                        <h3 class="color-black"><span class="counter">25</span>+</h3>
+                                        <p class="color-black font-size">Service sur mesure</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Faq Area End -->
+    <!-- Member Area -->
+    <div class="member-area portfolio-mt pt-100 pb-70" id="equipe">
         <div class="container">
             <div class="section-title text-center">
-                <span>Pricing Table</span>
-                <h2>We Have Pre-ready Pricing for Our Services</h2>
+                <span> @lang('file.our-experts-members') </span>
+                <h2>@lang('file.our-experts-members-title')</h2>
                 <p>
-                    It is a long established fact that a reader will be
-                    distracted by the readable content of a page when looking at its layout.
+                    @lang('file.our-experts-members-content')
                 </p>
             </div>
-            <div class="row">
-                <div class="col-lg-12 pt-45">
-                    <div class="tabs-item-list">
-                        <ul id="tabs-item" class="text-center">
-                            <li class="active">
-                                <a href="#monthly" class="prices-tab">Monthly</a>
-                            </li>
-                            <li>
-                                <a href="#yearly" class="prices-tab">Yearly</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div id="prices-content">
-                <div id="monthly" class="active prices-content-area animated">
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single-price">
-                                <span>Basic Plan</span>
-                                <div class="single-price-title">
-                                    <h2><sup>$</sup>30<sub>/month</sub></h2>
+            <div class="row pt-45 text-center">
+                @foreach ($equipes as $item)
+                   @php
+                       $poste = "poste_".session('locale');
+                   @endphp
+                <div class="col-sm-3 mx-auto">
+                    <div class="member-card">
+                        <div class="member-img">
+                            <a href="#">
+                                @if ($item->image)
+                                 <img src=" {{$item->image}} " alt=" {{$item->nom}} " style="height: 400px; object-fit: cover" >
+                                @else
+                                <img src="assets/img/member/1.jpg" alt="{{$item->nom}}">
+                                @endif
+                            </a>
+                            <div class="member-content">
+                                <a href="#">
+                                    <h3> {{$item->nom}} </h3>
+                                </a>
+                                <span style="font-weight: 600; font-size: 17px"> {{$item->$poste}} </span> <br/>
+                                <i style="font-size: 14px"> {{$item->email}} </i>
+                                <div class="social-icon">
+                                    <ul>
+                                        <li>
+                                            <a href="#" target="_blank" >
+                                                <i class='bx bxl-facebook'></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" >
+                                                <i class='bx bxl-twitter' ></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank" >
+                                                <i class='bx bxl-instagram' ></i>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <ul>
-                                    <li>Data Analysis</li>
-                                    <li>Website Building</li>
-                                    <li>Web Application</li>
-                                    <li class="color-gray">SEO Optimizing</li>
-                                    <li class="color-gray">Content Marketing</li>
-                                    <li class="color-gray">Social Marketing</li>
-                                </ul>
-                                <a href="#" class="get-btn">Get Stated</a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single-price current">
-                                <span>Standard Plan</span>
-                                <div class="single-price-title">
-                                    <h2><sup>$</sup>60<sub>/month</sub></h2>
-                                </div>
-                                <ul>
-                                    <li>Data Analysis</li>
-                                    <li>Website Building</li>
-                                    <li>Web Application</li>
-                                    <li>SEO Optimizing</li>
-                                    <li class="color-gray">Content Marketing</li>
-                                    <li class="color-gray">Social Marketing</li>
-                                </ul>
-                                <a href="#" class="get-btn">Get Stated</a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
-                            <div class="single-price">
-                                <span>Premium Plan</span>
-                                <div class="single-price-title">
-                                    <h2><sup>$</sup>90<sub>/month</sub></h2>
-                                </div>
-                                <ul>
-                                    <li>Data Analysis</li>
-                                    <li>Website Building</li>
-                                    <li>Web Application</li>
-                                    <li>SEO Optimizing</li>
-                                    <li>Content Marketing</li>
-                                    <li>Social Marketing</li>
-                                </ul>
-                                <a href="#" class="get-btn">Get Stated</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div id="yearly" class="animated prices-content-area">
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single-price">
-                                <span>Basic Plan</span>
-                                <div class="single-price-title">
-                                    <h2><sup>$</sup>70<sub>/Year</sub></h2>
-                                </div>
-                                <ul>
-                                    <li>Data Analysis</li>
-                                    <li>Website Building</li>
-                                    <li>Web Application</li>
-                                    <li class="color-gray">SEO Optimizing</li>
-                                    <li class="color-gray">Content Marketing</li>
-                                    <li class="color-gray">Social Marketing</li>
-                                </ul>
-                                <a href="#" class="get-btn">Get Stated</a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single-price current">
-                                <span>Standard Plan</span>
-                                <div class="single-price-title">
-                                    <h2><sup>$</sup>120<sub>/Year</sub></h2>
-                                </div>
-                                <ul>
-                                    <li>Data Analysis</li>
-                                    <li>Website Building</li>
-                                    <li>Web Application</li>
-                                    <li>SEO Optimizing</li>
-                                    <li class="color-gray">Content Marketing</li>
-                                    <li class="color-gray">Social Marketing</li>
-                                </ul>
-                                <a href="#" class="get-btn">Get Stated</a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-sm-6 offset-sm-3 offset-lg-0">
-                            <div class="single-price">
-                                <span>Premium Plan</span>
-                                <div class="single-price-title">
-                                    <h2><sup>$</sup>170<sub>/Year</sub></h2>
-                                </div>
-                                <ul>
-                                    <li>Data Analysis</li>
-                                    <li>Website Building</li>
-                                    <li>Web Application</li>
-                                    <li>SEO Optimizing</li>
-                                    <li>Content Marketing</li>
-                                    <li>Social Marketing</li>
-                                </ul>
-                                <a href="#" class="get-btn">Get Stated</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
-    <!-- Price Area End -->
-
-    <!-- Counter Area -->
-    <div class="counter-area pt-100 pb-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-md-3">
-                    <div class="single-counter">
-                        <i class='flaticon-success'></i>
-                        <h3><span class="counter">15</span></h3>
-                        <p>Years Experience</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-md-3">
-                    <div class="single-counter">
-                        <i class='flaticon-launch'></i>
-                        <h3><span class="counter">900</span>+</h3>
-                        <p>Projects Done</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-md-3">
-                    <div class="single-counter">
-                        <i class='flaticon-customer'></i>
-                        <h3><span class="counter">800</span>+</h3>
-                        <p>Happy Clients</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6 col-md-3">
-                    <div class="single-counter">
-                        <i class='flaticon-team-building'></i>
-                        <h3><span class="counter">25</span>+</h3>
-                        <p>Expert Members</p>
-                    </div>
-                </div>
-            </div>
+        <div class="member-shape-2">
+            <img src=" {{asset('assets/img/shape/member-shape-2.png')}} " alt="Members Images">
         </div>
+        
     </div>
-    <!-- Counter Area End -->
+    <!-- Member Area End -->
 
-    <!-- Client Area -->
-    <div class="client-area pt-100 pb-70">
-        <div class="container-fluid p-0">
+    <!-- Testimonial Area -->
+    <div class="testimonial-area pt-30 pb-70">
+        <div class="container-fluid" id="demander-un-devis">
             <div class="section-title text-center">
-                <span>Testimonial</span>
-                <h2>Our Clients Feedback</h2>
+                <span> @lang('file.temoignage') </span>
+                <h2> @lang('file.temoignage-titre') </h2>
                 <p>
-                    It is a long established fact that a reader will be distracted by
-                    the readable content of a page when looking at its layout.
+                    @lang('file.temoignage-content')
                 </p>
             </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-xxl-6">
+                    <div class="testimonial-slider">
+                        <div class="testimonial-icon">
+                            <i class='bx bxs-quote-alt-right'></i>
+                        </div>
 
-            <div class="client-slider owl-carousel owl-theme">
-                <div class="client-item">
-                    <div class="client-item-img">
-                        <img src="assets/img/testimonial/t1.png" alt="Testimonial Images">
+                        <div class="testimonial-item-slider owl-carousel owl-theme">
+                            @foreach ($temoignages as $item)
+                                @php
+                                    $contenu = "contenu_".session('locale');
+                                @endphp
+                                <div class="testimonial-item">
+                                    @if ($item->image)
+                                        <div class="testimonial-item-img">
+                                            <img src=" {{$item->image}} " alt="Testimonial Images">
+                                        </div>
+                                    @endif
+                                    <h3> {{$item->nom}} </h3>
+                                    <p>
+                                        {{$item->$contenu}} 
+                                    </p>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
-                    <h3>John Doe</h3>
-                    <p>
-                        Restaurants range from inexpensive and informal lunching or dining places
-                        catering to people working nearby, with modest food served in simple settings at low prices.
-                    </p>
                 </div>
 
-                <div class="client-item">
-                    <div class="client-item-img">
-                        <img src="assets/img/testimonial/t4.png" alt="Testimonial Images">
+                <div class="col-lg-6 col-xxl-6">
+                    <!-- Start Sign In Area -->
+                    <div class="contact-wrap-form log-in-width">
+                        <form method="post" action=" {{route('demander-un-devis')}} " >
+                            @csrf
+                            <p style="font-size: 20px; font-weight: 600"> @lang('file.demander-un-devis') </p>
+                            <p> @lang('file.demander-un-devis-titre') </p>
+                            <div class="row">
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <input class="form-control" requidred type="text" name="nom" placeholder=" @lang('file.nom')* ">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <input class="form-control" type="email" required name="email" placeholder=" @lang('file.email')* ">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <select name="service" required id="" class="form-control">
+                                             <option value=""> @lang('file.service-souhaite')* </option>
+                                                @foreach ($services as $item)
+                                                @php
+                                                    $nom = "nom_".session('locale');
+                                                @endphp
+                                                <option value=" {{$item->id}} "> {{$item->$nom}} </option>
+                                                    
+                                                @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="budget" placeholder=" @lang('file.budget') ">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea name="contenu" class="form-control" placeholder=" @lang('file.message')* " id="" cols="30" rows="4"></textarea>
+                                    </div>
+                                    @if(config('services.recaptcha.key'))
+                                                                    <div class="g-recaptcha"
+                                                                        data-sitekey="{{config('services.recaptcha.key')}}">
+                                                                    </div>
+                                                                @endif <br>
+                                </div>
+
+                                <div class="col-12 text-center">
+                                    <button class="default-btn btn-two" type="submit">
+                                       @lang('file.envoyer')
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <h3>Knot Doe</h3>
-                    <p>
-                        Restaurants range from inexpensive and informal lunching or dining places
-                        catering to people working nearby, with modest food served in simple settings at low prices.
-                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="shape-left">
+            <img src=" {{asset('assets/img/testimonial/shape-left.png')}} " alt="Images">
+        </div>
+        <div class="shape-right">
+            <img src=" {{asset('assets/img/testimonial/shape-right.png')}} " alt="Images">
+        </div>
+    </div>
+    <!-- Testimonial Area End -->
+    <!-- Faq Area  -->
+    <div class="faq-area-bg pt-100 pb-70">
+        <div class="container-fluid">
+            <div class="row align-items-center pt-45">
+                <div class="col-lg-5 col-xxl-6 pl-0">
+                    <div class="about-img-2">
+                        <div class="">
+                            <img src="{{asset('assets/img/admin.png')}}" alt="Comment ça marche ?">
+                        </div>
+                        <div class="about-shape1">
+                            <img src="{{asset('assets/img/about/s-1.png')}}" alt="Shape">
+                        </div>
+                        <div class="about-shape2">
+                            <img src="{{asset('assets/img/about/s-2.png')}}" alt="Shape">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="client-item">
-                    <div class="client-item-img">
-                        <img src="assets/img/testimonial/t5.png" alt="Testimonial Images">
+                <div class="col-lg-7 col-xxl-6">
+                    <div class="about-content about-width">
+                        <span> @lang('file.comment-ca-marche') </span>
+                        <h2>@lang('file.web-design-process') </h2>
+                        <br>
+                        <div class="faq-accordion faq-accordion-width">
+                            <ul class="accordion">
+                                @php
+                                    $i = 1;
+                                    $titre = 'titre_'.session('locale');
+                                    $contenu = 'contenu_'.session('locale');
+                                @endphp
+                                @foreach ($process as $item)
+                                    <li class="accordion-item">
+                                        <a class="accordion-title @if ($i==1) active @endif " href="javascript:void(0)">
+                                            <i> {{$i}} </i>
+                                            {{$item->$titre}}
+                                        </a>
+
+                                        <div class="accordion-content @if ($i==1) show @endif ">
+                                            <p> 
+                                                {{$item->$contenu}}
+                                            </p>
+                                        </div>
+                                    </li>
+                                    @php
+                                        $i++;
+                                    @endphp
+                                @endforeach
+                            </ul>
+                        </div>   
                     </div>
-                    <h3>John Smith</h3>
-                    <p>
-                        Restaurants range from inexpensive and informal lunching or dining places
-                        catering to people working nearby, with modest food served in simple settings at low prices.
-                    </p>
-                </div>
-                <div class="client-item">
-                    <div class="client-item-img">
-                        <img src="assets/img/testimonial/t3.png" alt="Testimonial Images">
-                    </div>
-                    <h3>Evanaa</h3>
-                    <p>
-                        Restaurants range from inexpensive and informal lunching or dining places
-                        catering to people working nearby, with modest food served in simple settings at low prices.
-                    </p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Client Area End -->
+    <!-- Faq Area End -->
+    
+
 @endsection

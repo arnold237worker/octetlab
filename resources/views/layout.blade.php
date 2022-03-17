@@ -24,12 +24,28 @@
         <link rel="stylesheet" href=" {{asset('assets/css/style.css')}} ">
         <!-- Responsive CSS -->
         <link rel="stylesheet" href=" {{asset('assets/css/responsive.css')}} ">
+        
+        <link href=" {{asset('assets/css/noty.css')}} " rel="stylesheet" type="text/css" />
 
         <!-- Title -->
         <title> @yield('title') </title>
 
         <!-- Favicon -->
         <link rel="icon" type="image/png" href=" {{asset('assets/favicon/favicon.ico')}} ">
+
+        {{-- <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+            (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/622d4335a34c2456412ac784/1fu0ct2e2';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+            })();
+            </script> --}}
+            <!--End of Tawk.to Script-->
     </head>
 
     <body>
@@ -100,26 +116,63 @@
                             <ul class="navbar-nav m-auto">
                                 
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href=" {{route('accueil')}} " class="nav-link">
                                         @lang("file.accueil")
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href=" {{route('a-propos')}} " class="nav-link">
                                         @lang("file.quisommesnous")
+                                        <i class='bx bxs-chevron-right'></i>
                                     </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a href="{{route('a-propos')}}#presentation" class="nav-link">
+                                                @lang('file.presentation')
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('a-propos')}}#equipe" class="nav-link">
+                                                @lang('file.notre-equipe')
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('demarche')}}" class="nav-link">
+                                                @lang('file.comment-ca-marche')
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('packages')}}" class="nav-link">
+                                                @lang('file.packages')
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
+                                
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href="#" class="nav-link">
                                         @lang("file.services")
+                                        <i class='bx bxs-chevron-right'></i>
                                     </a>
+                                    <ul class="dropdown-menu">
+                                        @php
+                                            $nom = "nom_".session('locale');
+                                        @endphp
+                                        @foreach (App\Models\CategorieService::get() as $item)
+                                            <li class="nav-item">
+                                                <a href=" {{route('services.details', $item->slug)}} " class="nav-link">
+                                                    {{$item->$nom}}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href="{{route('contact')}}" class="nav-link">
                                         @lang("file.realisations")
                                     </a>
                                 </li><li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href="{{route('contact')}}" class="nav-link">
                                         @lang("file.contactez-nous")
                                     </a>
                                 </li>
@@ -182,9 +235,10 @@
 
                                 <div class="newsletter-area">
                                     <form class="newsletter-form" data-toggle="validator">
-                                        <input type="email" class="form-control" placeholder="Email" name="EMAIL" required autocomplete="off">
+                                        @csrf
+                                        <input type="email" class="form-control" placeholder=" @lang('file.email') " name="email" required autocomplete="off">
                                         <button class="subscribe-btn" type="submit">
-                                            Subscribe
+                                            @lang('file.souscrire')
                                         </button>
                                         <div id="validator-newsletter" class="form-result"></div>
                                     </form>
@@ -210,7 +264,7 @@
 
                         <div class="col-lg-5 col-md-6">
                             <div class="footer-list">
-                                <h3>Quick Links</h3>
+                                <h3>@lang('file.menu')</h3>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <ul>
@@ -228,7 +282,7 @@
                                             </li>
                                             <li>
                                                 <i class='bx bxs-chevron-right'></i>
-                                                <a href=" {{route('prix')}} ">Nos packages</a>
+                                                <a href=" {{route('packages')}} ">@lang('file.packages')</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -261,7 +315,7 @@
 
                         <div class="col-lg-3 col-md-6">
                             <div class="footer-list ml-20">
-                                <h3>Contact Us</h3>
+                                <h3>@lang('file.contact-us')</h3>
                                 <ul>
                                     <li>
                                         <i class='bx bxs-chevron-right'></i>
@@ -296,7 +350,7 @@
                         <div class="col-lg-12">
                             <div class="bottom-text text-center">
                                 <p>
-                                    Copyright ©{{date('Y')}} OctetLab. Tous droits réservés 
+                                    @lang('file.copyright')
                                 </p>
                             </div>
                         </div>
@@ -325,8 +379,11 @@
         <script src=" {{asset('assets/js/form-validator.min.js')}} "></script>
         <!-- Contact Form JS -->
         <script src=" {{asset('assets/js/contact-form-script.js')}} "></script>
+        
+        <script src=" {{asset('assets/js/noty.js')}} "></script>
         <!-- Custom JS -->
         <script src=" {{asset('assets/js/custom.js')}} "></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
 
         <script>
             $(".lang").change(function(){
@@ -339,6 +396,29 @@
                     window.location.href = "{{ asset('lang/de') }}";
                   
             });
+        </script>
+
+        
+        <script>
+            @if ($errors->any())
+                var message = "{{ $errors->all()[0] }}"
+                new Noty({
+                    type: 'error',
+                    text: message,
+                    timeout: 7000,
+                    killer: true
+                }).show();
+            @endif
+
+            @if(session()->has('success'))
+            var message = "{{ session('success') }}"
+                new Noty({
+                    type: 'success',
+                    text: message,
+                    timeout: 5000,
+                    killer: true
+                }).show();
+            @endif
         </script>
     </body>
 </html>

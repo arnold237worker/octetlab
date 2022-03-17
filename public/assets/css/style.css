@@ -1158,6 +1158,12 @@ Faq Area
   line-height: 0;
 }
 
+.faq-accordion span {
+  color: #ff4a35;
+  font-weight: 500;
+  line-height: 0;
+}
+
 .faq-content h2 {
   font-size: 35px;
   margin-bottom: 25px;
@@ -1998,14 +2004,20 @@ Testimonial Area
   left: 0;
   right: 0;
   margin: auto;
-  width: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
+  object-fit: cover;
+}
+
+.text-justify {
+  text-align: justify !important;
 }
 
 .testimonial-item h3 {
   font-size: 20px;
   color: #fff;
-  padding-top: 70px;
+  padding-top: 120px;
 }
 
 .testimonial-item p {
@@ -3399,15 +3411,15 @@ Inner Banner
 }
 
 .inner-bg4 {
-  background-image: url(../img/inner-banner/4.jpg);
+  background-image: url(../img/inner-banner/14.jpg);
 }
 
 .inner-bg5 {
-  background-image: url(../img/inner-banner/5.jpg);
+  background-image: url(../img/inner-banner/9.jpg);
 }
 
 .inner-bg6 {
-  background-image: url(../img/inner-banner/6.jpg);
+  background-image: url(../img/inner-banner/15.jpg);
 }
 
 .inner-bg7 {
@@ -3598,7 +3610,7 @@ Common Catagory
 .common-catagory .catagory li a {
   padding: 15px 25px;
   width: 100%;
-  color: #352AE6;
+  color: #232350;
   font-weight: 600;
   -webkit-transition: 0.9s;
   transition: 0.9s;
@@ -3608,11 +3620,46 @@ Common Catagory
   color: #fff;
 }
 
+    /* Rating Star Widgets Style */
+    .rating-stars ul {
+      list-style-type:none;
+      padding:0;
+      
+      -moz-user-select:none;
+      -webkit-user-select:none;
+    }
+    .rating-stars ul > li.star {
+      display:inline-block;
+      
+    }
+
+    
+    
+    /* Idle State of the stars */
+    .rating-stars ul > li.star > i.bx {
+      font-size:2.5em; /* Change the size of the stars */
+      color:#ccc; /* Color on idle state */
+    }
+    
+    /* Hover state of the stars */
+    .rating-stars ul > li.star.hover > i.bx {
+      color:#4941F3;
+    }
+    
+    /* Selected state of the stars */
+    .rating-stars ul > li.star.selected > i.bx {
+      color:#4941D6;
+    }
+
 .common-catagory .catagory li a i {
   float: right;
   font-size: 20px;
   position: relative;
   top: 4px;
+}
+
+.gray {
+  color: #232350 !important;
 }
 
 /*================================
@@ -4254,7 +4301,7 @@ Contact Page
 
 .contact-wrap-form .form-group .form-control {
   height: 50px;
-  color: #352AE6;
+  color: #232350;
   border: 1px solid #e8e8e8;
   background-color: #fcfcff;
   border-radius: 0;
@@ -4266,7 +4313,7 @@ Contact Page
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border-color: #352AE6;
+  border-color: #232350;
 }
 
 .contact-wrap-form .form-group textarea.form-control {
@@ -4354,19 +4401,19 @@ Contact Page
 }
 
 .contact-wrap-form .form-group .form-control::-webkit-input-placeholder {
-  color: #352AE6;
+  color: #232350;
 }
 
 .contact-wrap-form .form-group .form-control:-ms-input-placeholder {
-  color: #352AE6;
+  color: #232350;
 }
 
 .contact-wrap-form .form-group .form-control::-ms-input-placeholder {
-  color: #352AE6;
+  color: #232350;
 }
 
 .contact-wrap-form .form-group .form-control::placeholder {
-  color: #352AE6;
+  color: #232350;
 }
 
 .map-area iframe {
@@ -4381,6 +4428,7 @@ Contact Page
   margin-left: auto;
   margin-right: auto;
 }
+
 
 .login-social-btn {
   font-size: 30px;

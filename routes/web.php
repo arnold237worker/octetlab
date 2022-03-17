@@ -17,29 +17,25 @@ use Illuminate\Http\Request;
 
 
 Route::group(['middleware' => 'locale'], function(){
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('accueil');
-    
-    Route::get('/a-propos', function () {
-        return view('about');
-    })->name('a-propos');
+    Route::get('/', 'HomeController@home')->name('accueil');
+    Route::post('/demander-un-devis', 'HomeController@demander_un_devis')->name('demander-un-devis');
+    Route::post('/demander-package', 'HomeController@demander_package')->name('demander-package');
+    Route::get('/services/{slug}', 'HomeController@service')->name('services.details');
+    Route::get('/realisations', 'HomeController@realisations')->name('realisations');
+    Route::get('/realisations/{slug}', 'HomeController@realisation')->name('realisations.details');
+    Route::get('/contactez-nous', 'HomeController@contact')->name('contact');
+    Route::post('/envoyer-message', 'HomeController@envoyer_message')->name('envoyer-message');
+    Route::get('/a-propos', 'HomeController@about')->name('a-propos');
+    Route::get('/packages', 'HomeController@packages')->name('packages');
+    Route::get('/notre-demarche', 'HomeController@demarche')->name('demarche');
+    Route::post('/noter-octetlab', 'HomeController@noter_octetlab')->name('noter-octetlab');
     
     Route::get('/services', function () {
         return view('services');
     })->name('services');
     
-    Route::get('/realisations', function () {
-        return view('realisations');
-    })->name('realisations');
     
-    Route::get('/contact', function () {
-        return view('contact');
-    })->name('contact');
     
-    Route::get('/prix', function () {
-        return view('contact');
-    })->name('prix');
 
     Route::get('/mentions-legales', function () {
         return view('mentions');
