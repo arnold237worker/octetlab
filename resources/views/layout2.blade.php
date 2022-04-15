@@ -31,7 +31,11 @@
         <title> @yield('title') </title>
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href=" {{asset('assets/favicon/favicon.ico')}} ">
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/favicon/apple-touch-icon.png')}} ">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/favicon/favicon-32x32.png')}} ">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/favicon/favicon-16x16.png')}}">
+        <link rel="manifest" href="{{asset('assets/favicon/site.webmanifest')}}">
 
         {{-- <!--Start of Tawk.to Script-->
         <script type="text/javascript">
@@ -51,7 +55,9 @@
     <body>
         <!-- Start Preloader -->
         <div class="preloader">
-            <div class="preloader-wave"></div>
+            <div class="preloader-wave">
+                <img src=" {{asset('assets/img/loader.png')}} " class="animated progres"  alt="">
+            </div>
         </div>
         <!-- End Preloader -->
 
@@ -158,7 +164,7 @@
                                         @php
                                             $nom = "nom_".session('locale');
                                         @endphp
-                                        @foreach (App\Models\CategorieService::get() as $item)
+                                        @foreach (App\Models\CategorieService::where('etat', 'published')->get() as $item)
                                             <li class="nav-item">
                                                 <a href=" {{route('services.details', $item->slug)}} " class="nav-link">
                                                     {{$item->$nom}}
@@ -187,8 +193,9 @@
                                             <i class="close-btn bx bx-x"></i>
                                             <div class="search-overlay search-popup">
                                                 <div class="search-box">
-                                                    <form class="search-form">
-                                                        <input class="search-input" name="search" placeholder="Search" type="text">
+                                                    <form class="search-form" action=" {{route('rechercher')}} ">
+                                                        @csrf
+                                                        <input class="search-input" name="mot_cle" required placeholder=" @lang('file.search') " type="text">
                                                         <button class="search-button" type="submit">
                                                             <i class="flaticon-loupe"></i>
                                                         </button>
@@ -234,7 +241,7 @@
                                 </div> 
 
                                 <div class="newsletter-area">
-                                    <form class="newsletter-form" data-toggle="validator">
+                                    <form class="newsletter-form" action=" {{route('newsletter.subscribe')}} " method="post">
                                         @csrf
                                         <input type="email" class="form-control" placeholder=" @lang('file.email') " name="email" required autocomplete="off">
                                         <button class="subscribe-btn" type="submit">
@@ -319,23 +326,47 @@
                                 <ul>
                                     <li>
                                         <i class='bx bxs-chevron-right'></i>
-                                        <a href="tel:+1123456789">+237 655725353</a>
+                                        <a href="https:/wa.me/+237655725353">+237 655725353</a>
                                     </li>
                                     <li>
                                         <i class='bx bxs-chevron-right'></i>
-                                        <a href="tel:+19876543210">+49 1624613569</a>
+                                        <a href="https:/wa.me/+491624613569">+49 1624613569</a>
                                     </li>
                                     <li>
                                         <i class='bx bxs-chevron-right'></i>
-                                        <a href="mailto:email@bonsa.com">octetlab0@gmail.com</a>
+                                        <a href="mailto:octetlab0@gmail.com">octetlab0@gmail.com</a>
                                     </li>
                                     <li>
                                         <i class='bx bxs-chevron-right'></i>
-                                        <a href="mailto:hello@bonsa.com"> @lang('file.open') : 24h/24 - 7j/7</a>
+                                        <a href="#"> @lang('file.open') : 24h/24 - 7j/7</a>
                                     </li>
                                     <li>
                                         <i class='bx bxs-chevron-right'></i>
                                         @lang('file.location')
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="bottom-text text-center footer-link">
+                                <ul class="footer-social">
+                                    <li>
+                                        <a href="https://www.facebook.com/octetlab" target="_blank"><i class="bx bxl-facebook"></i></a>
+                                    </li>
+                                    {{-- <li>
+                                        <a href="#" target="_blank"><i class="bx bxl-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" target="_blank"><i class='bx bxl-youtube'></i></a>
+                                    </li> --}}
+                                    <li>
+                                        <a href="https://www.instagram.com/p/CXCYlUGMNB3/?utm_medium=copy_link" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com/company/octetlab" target="_blank"><i class='bx bxl-linkedin' ></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -359,6 +390,7 @@
             </div>
         </footer>
         <!-- Footer Area End -->
+        <div id="whatsapp" class="whatsapp-btn"> <a href="https:/wa.me/+491624613569" style="color: #FFF !important"><i class="bx bx-phone"></i></a> </div>
 
 
          <!-- Jquery Min JS -->
@@ -419,17 +451,17 @@
                     @endif
                 </script>
                 <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/6232d78aa34c2456412b7779/1fub9jtjg';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
+                <script type="text/javascript">
+                    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                    (function(){
+                    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                    s1.async=true;
+                    s1.src='https://embed.tawk.to/6232d78aa34c2456412b7779/1fub9jtjg';
+                    s1.charset='UTF-8';
+                    s1.setAttribute('crossorigin','*');
+                    s0.parentNode.insertBefore(s1,s0);
+                    })();
+                </script>
+                <!--End of Tawk.to Script-->
     </body>
 </html>

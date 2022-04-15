@@ -167,7 +167,7 @@ OCTETLAB - @lang('file.quisommesnous')
                    @php
                        $poste = "poste_".session('locale');
                    @endphp
-                <div class="col-sm-3 mx-auto">
+                <div class="col-sm-3">
                     <div class="member-card">
                         <div class="member-img">
                             <a href="#">
@@ -323,61 +323,6 @@ OCTETLAB - @lang('file.quisommesnous')
         </div>
     </div>
     <!-- Testimonial Area End -->
-    <!-- Faq Area  -->
-    <div class="faq-area-bg pt-100 pb-70">
-        <div class="container-fluid">
-            <div class="row align-items-center pt-45">
-                <div class="col-lg-5 col-xxl-6 pl-0">
-                    <div class="about-img-2">
-                        <div class="">
-                            <img src="{{asset('assets/img/admin.png')}}" alt="Comment ça marche ?">
-                        </div>
-                        <div class="about-shape1">
-                            <img src="{{asset('assets/img/about/s-1.png')}}" alt="Shape">
-                        </div>
-                        <div class="about-shape2">
-                            <img src="{{asset('assets/img/about/s-2.png')}}" alt="Shape">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-7 col-xxl-6">
-                    <div class="about-content about-width">
-                        <span> @lang('file.comment-ca-marche') </span>
-                        <h2>@lang('file.web-design-process') </h2>
-                        <br>
-                        <div class="faq-accordion faq-accordion-width">
-                            <ul class="accordion">
-                                @php
-                                    $i = 1;
-                                    $titre = 'titre_'.session('locale');
-                                    $contenu = 'contenu_'.session('locale');
-                                @endphp
-                                @foreach ($process as $item)
-                                    <li class="accordion-item">
-                                        <a class="accordion-title @if ($i==1) active @endif " href="javascript:void(0)">
-                                            <i> {{$i}} </i>
-                                            {{$item->$titre}}
-                                        </a>
-
-                                        <div class="accordion-content @if ($i==1) show @endif ">
-                                            <p> 
-                                                {{$item->$contenu}}
-                                            </p>
-                                        </div>
-                                    </li>
-                                    @php
-                                        $i++;
-                                    @endphp
-                                @endforeach
-                            </ul>
-                        </div>   
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Faq Area End -->
     
 
 @endsection

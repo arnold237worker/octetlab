@@ -27,7 +27,7 @@
     </div>
     <!-- Inner Banner End -->
     <!-- Service Dtls -->
-    <div class="service-dtls pt-100">
+    <div class="service-dtls pt-100 pb-70">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
@@ -128,29 +128,31 @@
 
     @if (count($connexes) > 0)
         <!-- Portfolio Area -->
-        <section class="portfolio-area portfolio-mt pt-50 pb-70">
+        <section class="portfolio-area portfolio-mt pb-70">
             <div class="container">
                 <div class="section-title text-center">
                     <span> @lang('file.nos-realisations') </span>
                     <h2 style="font-size: 20px"> @lang('file.realisations-similaires')</h2>
                 </div>
-                <div class="portfolio-slider pt-45 owl-carousel owl-theme">
+                <div class="row pt-45">
                     @foreach ($connexes as $item)
                         @php
                             $titre = "nom_".session('locale');
                             $contenu = "contenu_".session('locale');
                         @endphp
-                        <div class="portfolio-item">
-                            <div class="portfolio-img">
-                                <a href="{{route('realisations.details', $item->slug)}}">
-                                    <img src="{{$item->images->first()->path}}" style="width: 510px; height: 400px; object-fit: cover" alt="Portfolio Images">
-                                </a>
-                                <div class="portfolio-tag">
-                                    <a href="#"><span> {{$item->service->$titre}} </span></a>
-                                </div>
-                                <div class="portfolio-content">
-                                    <a href="{{route('realisations.details', $item->slug)}}"><h3> {{$item->$titre}} </h3></a>
-                                    <i class='bx bxs-chevron-right'></i>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                    <a href="{{route('realisations.details', $item->slug)}}">
+                                        <img src="{{$item->images->first()->path}}" style="width: 100%; height: 400px; object-fit: cover" alt="Portfolio Images">
+                                    </a>
+                                    <div class="portfolio-tag">
+                                        <a href="#"><span> {{$item->service->$titre}} </span></a>
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <a href="{{route('realisations.details', $item->slug)}}"><h3> {{$item->$titre}} </h3></a>
+                                        <i class='bx bxs-chevron-right'></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>

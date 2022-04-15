@@ -33,12 +33,12 @@ OCTETLAB - @lang('file.contact-us')
                         <i class='flaticon-call'></i>
                         <ul>
                             <li>
-                                <a href="tel:+237655725353" class="gray">
+                                <a href="https://wa.me/+237655725353" class="gray">
                                     +237 655725353
                                 </a>
                             </li>
                             <li>
-                                <a href="tel: +491624613569" class="gray">
+                                <a href="https://wa.me/+491624613569" class="gray">
                                     +49 1624613569
                                 </a>
                             </li>
@@ -51,7 +51,7 @@ OCTETLAB - @lang('file.contact-us')
                         <i class="flaticon-paper-plane"></i>
                         <ul>
                             <li class="gray">
-                                `
+                                Email
                             </li>
                             <li>
                                 <a href="mailto:octetlab0@gmail.com" class="gray">octetlab0@gmail.com</a>
@@ -153,9 +153,9 @@ OCTETLAB - @lang('file.contact-us')
         <div class="container">
             <div class="subscribe-content">
                 <h2 class="text-center"> @lang('file.newsletter') </h2>
-                <form class="subscribe-form">
+                <form class="subscribe-form" action=" {{route('newsletter.subscribe')}} " method="post">
                     @csrf
-                    <input type="email" required class="form-control" placeholder=" @lang('file.email') ">
+                    <input type="email" required class="form-control" name="email" placeholder=" @lang('file.email') ">
                     <button class="submit-btn" type="submit">
                         @lang('file.souscrire')
                     </button>

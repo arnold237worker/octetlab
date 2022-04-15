@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    OctetLab - @lang('file.about')
+    OctetLab - @lang('file.accueil')
 @endsection
 
 @section('content')
@@ -403,7 +403,7 @@
                    @php
                        $poste = "poste_".session('locale');
                    @endphp
-                <div class="col-sm-3 mx-auto">
+                <div class="col-sm-3 ">
                     <div class="member-card">
                         <div class="member-img">
                             <a href="#">
@@ -419,7 +419,7 @@
                                 </a>
                                 <span style="font-weight: 600; font-size: 17px"> {{$item->$poste}} </span> <br/>
                                 <i style="font-size: 14px"> {{$item->email}} </i>
-                                <div class="social-icon">
+                                {{-- <div class="social-icon">
                                     <ul>
                                         <li>
                                             <a href="#" target="_blank" >
@@ -437,7 +437,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -567,9 +567,9 @@
         <div class="container">
             <div class="subscribe-content">
                 <h2 class="text-center"> @lang('file.newsletter') </h2>
-                <form class="subscribe-form">
+                <form class="subscribe-form" action=" {{route('newsletter.subscribe')}} " method="post">
                     @csrf
-                    <input type="email" required class="form-control" placeholder=" @lang('file.email') ">
+                    <input type="email" name="email" required class="form-control" placeholder=" @lang('file.email') ">
                     <button class="submit-btn" type="submit">
                         @lang('file.souscrire')
                     </button>

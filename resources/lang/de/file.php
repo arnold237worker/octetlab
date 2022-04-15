@@ -105,5 +105,7 @@ return [
     'note-success' => 'Ihre Notiz wurde erfolgreich registriert! Wir danken Ihnen.',
     'entrer-note' => 'Eine Note geben',
     'laissez-nous-un-avis' => 'Hinterlassen Sie uns Ihre Meinung',
-    'laissez-nous-un-avis-contenu' => 'Weil Ihre Meinung zählt, hinterlassen Sie uns Ihre Kommentare, um unsere Vorgehensweise zu verbessern.'
+    'laissez-nous-un-avis-contenu' => 'Weil Ihre Meinung zählt, hinterlassen Sie uns Ihre Kommentare, um unsere Vorgehensweise zu verbessern.',
+    'search' => 'Suche',
+    'no-result' => 'Keine Ergebnisse für Ihre Suche!'
 ];

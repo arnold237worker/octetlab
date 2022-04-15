@@ -106,8 +106,9 @@ return [
     'note-success' => 'Votre note a été enregistré avec succès ! Merci.',
     'entrer-note' => 'Donner une note',
     'laissez-nous-un-avis' => 'Laissez-nous votre avis',
-    'laissez-nous-un-avis-contenu' => 'Parceque votre avis compte, laisser nous vos commentaires pour améliorer notre démarche.'
-    
+    'laissez-nous-un-avis-contenu' => 'Parceque votre avis compte, laisser nous vos commentaires pour améliorer notre démarche.',
+    'search' => 'Rechercher',
+    'no-result' => 'Aucun résultat pour votre recherche !'
 
 
 ];

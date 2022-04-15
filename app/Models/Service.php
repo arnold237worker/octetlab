@@ -10,7 +10,7 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom_fr', 'nom_de', 'nom_en','contenu_fr', 'contenu_de', 'contenu_en', 'image', 'slug', 'categorie_service_id'
+        'nom_fr', 'nom_de', 'nom_en','contenu_fr', 'contenu_de', 'contenu_en', 'image', 'slug', 'categorie_service_id', 'etat'
     ];
 
     public function realisations()
@@ -20,6 +20,6 @@ class Service extends Model
 
     public function categorie()
     {
-        return $this->belongsTo(CategorieService::class);
+        return $this->belongsTo(CategorieService::class, 'categorie_service_id');
     }
 }

@@ -106,5 +106,7 @@ return [
     'note-success' => 'Your note has been successfully registered! Thank you.',
     'entrer-note' => 'Giving a rating',
     'laissez-nous-un-avis' => 'Leave us your opinion',
-    'laissez-nous-un-avis-contenu' => 'Because your opinion counts, leave us your comments to improve our approach.'
+    'laissez-nous-un-avis-contenu' => 'Because your opinion counts, leave us your comments to improve our approach.',
+    'search' => 'Search',
+    'no-result' => 'No results for your search!'
 ];

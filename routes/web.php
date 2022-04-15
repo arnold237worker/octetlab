@@ -29,6 +29,8 @@ Route::group(['middleware' => 'locale'], function(){
     Route::get('/packages', 'HomeController@packages')->name('packages');
     Route::get('/notre-demarche', 'HomeController@demarche')->name('demarche');
     Route::post('/noter-octetlab', 'HomeController@noter_octetlab')->name('noter-octetlab');
+    Route::get('/rechercher', 'HomeController@rechercher')->name('rechercher');
+    Route::post('/newsletter', 'HomeController@newsletter')->name('newsletter.subscribe');
     
     Route::get('/services', function () {
         return view('services');

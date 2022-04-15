@@ -60,10 +60,10 @@ OCTETLAB - @lang('file.packages')
                                 @endphp <br>
                                 <ul>
                                     @foreach ($services_items as $s)
-                                        <li>  {{$s}} </li>
+                                        <li> <i class="bx bx-check-circle text-primary"></i>  {{$s}} </li>
                                     @endforeach
                                 </ul>
-                                <a href="#demander-un-package" class="get-btn" style="background-color: #ff4a35 !important; color: #fff"> @lang('file.contact-us') </a>
+                                <a href="#demander-un-package" class="get-btn" style="background-color: #67CFEE !important; color: #fff"> @lang('file.contact-us') </a>
                             </div>
                         </div>
                         @endforeach
