@@ -294,6 +294,8 @@ Navbar Area
 
 .navbar-light .navbar-brand img {
   float: left;
+  width: 100%;
+  object-fit: cover;
 }
 
 .navbar-light .navbar-brand-sticky {
@@ -4574,7 +4576,7 @@ Back To Top Button
 =====================================*/
 #toTop {
   position: fixed;
-  bottom: 20px;
+  bottom: 80px;
   right: 20px;
   cursor: pointer;
   display: none;
@@ -4609,7 +4611,7 @@ Back To Top Button
 
 #whatsapp {
   position: fixed;
-  bottom: 80px;
+  bottom: 20px;
   right: 20px;
   cursor: pointer;
   z-index: 99;
@@ -4642,16 +4644,40 @@ Back To Top Button
 
 
 .animated {
-  animation: progres 2s infinite linear;
+  animation: moveBounce 1s infinite linear;
 }
 
 @keyframes progres {
   0% {
-    width: 70%;
+    width: 0%;
+  }
+
+  15% {
+    width: 15%;
+  }
+
+  25% {
+    width: 25%;
+  }
+
+  35% {
+    width: 35%;
   }
 
   50% {
-    width: 90%;
+    width: 50%;
+  }
+
+  65% {
+    width: 65%;
+  }
+
+  75% {
+    width: 75%;
+  }
+
+  85% {
+    width: 85%;
   }
 
   100% {
@@ -4873,8 +4899,8 @@ Animation CSS
   }
 
   50% {
-    -webkit-transform: translateY(50px);
-    transform: translateY(50px);
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
   }
 
   100% {

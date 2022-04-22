@@ -129,6 +129,31 @@
                                         @lang("file.accueil")
                                     </a>
                                 </li>
+                                
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        @lang("file.services")
+                                        <i class='bx bxs-chevron-right'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        @php
+                                            $nom = "nom_".session('locale');
+                                        @endphp
+                                        @foreach (App\Models\CategorieService::where('etat', 'published')->get() as $item)
+                                            <li class="nav-item">
+                                                <a href=" {{route('services.details', $item->slug)}} " class="nav-link">
+                                                    {{$item->$nom}}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('realisations')}}" class="nav-link">
+                                        @lang("file.realisations")
+                                    </a>
+                                </li>
+                                
                                 <li class="nav-item">
                                     <a href=" {{route('a-propos')}} " class="nav-link">
                                         @lang("file.quisommesnous")
@@ -157,30 +182,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        @lang("file.services")
-                                        <i class='bx bxs-chevron-right'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        @php
-                                            $nom = "nom_".session('locale');
-                                        @endphp
-                                        @foreach (App\Models\CategorieService::where('etat', 'published')->get() as $item)
-                                            <li class="nav-item">
-                                                <a href=" {{route('services.details', $item->slug)}} " class="nav-link">
-                                                    {{$item->$nom}}
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('contact')}}" class="nav-link">
-                                        @lang("file.realisations")
-                                    </a>
-                                </li><li class="nav-item">
                                     <a href="{{route('contact')}}" class="nav-link">
                                         @lang("file.contactez-nous")
                                     </a>

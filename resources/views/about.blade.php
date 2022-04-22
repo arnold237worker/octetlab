@@ -183,7 +183,7 @@ OCTETLAB - @lang('file.quisommesnous')
                                 </a>
                                 <span style="font-weight: 600; font-size: 17px"> {{$item->$poste}} </span> <br/>
                                 <i style="font-size: 14px"> {{$item->email}} </i>
-                                <div class="social-icon">
+                                {{-- <div class="social-icon">
                                     <ul>
                                         <li>
                                             <a href="#" target="_blank" >
@@ -201,7 +201,7 @@ OCTETLAB - @lang('file.quisommesnous')
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

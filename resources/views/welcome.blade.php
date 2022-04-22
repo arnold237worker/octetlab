@@ -66,7 +66,7 @@
     
 
     <!-- About Area -->
-    <div class="about-area pt-100 pb-70">
+    {{-- <div class="about-area pt-100 pb-70">
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-xxl-6 ps-0">
@@ -94,11 +94,11 @@
         <div class="about-shape">
             <img src=" {{asset('assets/img/shape/right-side.png')}} " alt="Shape Images">
         </div>
-    </div>
+    </div> --}}
     <!-- About Area End -->
     
     <!-- Service Area -->
-    <section class="service-area pb-70">
+    <section class="service-area pb-70 pt-100">
         <div class="container">
             <div class="section-title text-center">
                 <span> @lang('file.nos-services') </span>
@@ -388,73 +388,10 @@
     </div> --}}
     <!-- Price Area End -->
 
-    <!-- Member Area -->
-    <div class="member-area pt-100 pb-70">
-        <div class="container">
-            <div class="section-title text-center">
-                <span> @lang('file.our-experts-members') </span>
-                <h2>@lang('file.our-experts-members-title')</h2>
-                <p>
-                    @lang('file.our-experts-members-content')
-                </p>
-            </div>
-            <div class="row pt-45 text-center">
-                @foreach ($equipes as $item)
-                   @php
-                       $poste = "poste_".session('locale');
-                   @endphp
-                <div class="col-sm-3 ">
-                    <div class="member-card">
-                        <div class="member-img">
-                            <a href="#">
-                                @if ($item->image)
-                                 <img src=" {{$item->image}} " alt=" {{$item->nom}} " style="height: 400px; object-fit: cover" >
-                                @else
-                                <img src="assets/img/member/1.jpg" alt="{{$item->nom}}">
-                                @endif
-                            </a>
-                            <div class="member-content">
-                                <a href="#">
-                                    <h3> {{$item->nom}} </h3>
-                                </a>
-                                <span style="font-weight: 600; font-size: 17px"> {{$item->$poste}} </span> <br/>
-                                <i style="font-size: 14px"> {{$item->email}} </i>
-                                {{-- <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-facebook'></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-twitter' ></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank" >
-                                                <i class='bx bxl-instagram' ></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div> --}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        <div class="member-shape-2">
-            <img src=" {{asset('assets/img/shape/member-shape-2.png')}} " alt="Members Images">
-        </div>
-        
-    </div>
-    <!-- Member Area End -->
 
     <!-- Testimonial Area -->
-    <div class="testimonial-area pt-30 pb-70">
-        <div class="container-fluid" id="demander-un-devis">
+    <div class="testimonial-area pt-100 pb-70">
+        <div class="container-fluid">
             <div class="section-title text-center">
                 <span> @lang('file.temoignage') </span>
                 <h2> @lang('file.temoignage-titre') </h2>
@@ -490,10 +427,10 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-xxl-6">
+                <div class="col-lg-6 col-xxl-6" id="demander-un-devis">
                     <!-- Start Sign In Area -->
                     <div class="contact-wrap-form log-in-width">
-                        <form method="post" action=" {{route('demander-un-devis')}} " >
+                        <form method="post" action=" {{route('demander-un-devis')}} "  >
                             @csrf
                             <p style="font-size: 20px; font-weight: 600"> @lang('file.demander-un-devis') </p>
                             <p> @lang('file.demander-un-devis-titre') </p>
@@ -501,7 +438,7 @@
 
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <input class="form-control" requidred type="text" name="nom" placeholder=" @lang('file.nom')* ">
+                                        <input class="form-control" required type="text" name="nom" placeholder=" @lang('file.nom')* ">
                                     </div>
                                 </div>
                                 <div class="col-6">

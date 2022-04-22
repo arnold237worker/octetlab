@@ -56,13 +56,13 @@
         <!-- Start Preloader -->
         <div class="preloader">
             <div class="preloader-wave">
-                <img src=" {{asset('assets/img/loader.png')}} " class="animated progres"  alt="">
+                <img src=" {{asset('assets/img/loader.png')}} " class="animated moveBounce"  alt="">
             </div>
         </div>
         <!-- End Preloader -->
 
         <!-- Header Area -->
-        <!-- <header class="header-area">
+        <header class="header-area">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-8 col-md-9">
@@ -70,7 +70,7 @@
                             <ul class="header-contact">
                                 <li><a href="#"><i class='flaticon-pin'></i>@lang('file.location')</a></li>
                                 <li><a href="mailto:octetlab0@gmail.com"><i class="flaticon-paper-plane"></i> octetlab0@gmail.com</a></li>
-                                <li><a href="tel:+237655725353"><i class="flaticon-call"></i> +237 655725353 | +49 1624613569</a></li>
+                                <li><a href="https:/wa.me/+491624613569"><i class="flaticon-call"></i> +237 655725353 | +49 1624613569</a></li>
                             </ul>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
                         <div class="header-content-right">
                             <ul class="header-social">
                                 <li>
-                                    <a href="https://www.facebook.com/takeitgroup0/" target="_blank"><i class="bx bxl-facebook"></i></a>
+                                    <a href="https://www.facebook.com/octetlab" target="_blank"><i class="bx bxl-facebook"></i></a>
                                 </li>
                                 {{-- <li>
                                     <a href="#" target="_blank"><i class="bx bxl-twitter"></i></a>
@@ -88,14 +88,17 @@
                                     <a href="#" target="_blank"><i class='bx bxl-youtube'></i></a>
                                 </li> --}}
                                 <li>
-                                    <a href="https://www.instagram.com/octetlab/" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                                    <a href="https://www.instagram.com/p/CXCYlUGMNB3/?utm_medium=copy_link" target="_blank"><i class='bx bxl-instagram' ></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/company/octetlab" target="_blank"><i class='bx bxl-linkedin' ></i></a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </header> -->
+        </header>
         <!-- End Header Area -->
 
         <!-- Start Navbar Area -->
@@ -126,6 +129,31 @@
                                         @lang("file.accueil")
                                     </a>
                                 </li>
+                                
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        @lang("file.services")
+                                        <i class='bx bxs-chevron-right'></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        @php
+                                            $nom = "nom_".session('locale');
+                                        @endphp
+                                        @foreach (App\Models\CategorieService::where('etat', 'published')->get() as $item)
+                                            <li class="nav-item">
+                                                <a href=" {{route('services.details', $item->slug)}} " class="nav-link">
+                                                    {{$item->$nom}}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('realisations')}}" class="nav-link">
+                                        @lang("file.realisations")
+                                    </a>
+                                </li>
+                                
                                 <li class="nav-item">
                                     <a href=" {{route('a-propos')}} " class="nav-link">
                                         @lang("file.quisommesnous")
@@ -154,30 +182,7 @@
                                             </li>
                                     </ul>
                                 </li>
-                                
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        @lang("file.services")
-                                        <i class='bx bxs-chevron-right'></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        @php
-                                            $nom = "nom_".session('locale');
-                                        @endphp
-                                        @foreach (App\Models\CategorieService::where('etat', 'published')->get() as $item)
-                                            <li class="nav-item">
-                                                <a href=" {{route('services.details', $item->slug)}} " class="nav-link">
-                                                    {{$item->$nom}}
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('realisations')}}" class="nav-link">
-                                        @lang("file.realisations")
-                                    </a>
-                                </li><li class="nav-item">
                                     <a href="{{route('contact')}}" class="nav-link">
                                         @lang("file.contactez-nous")
                                     </a>

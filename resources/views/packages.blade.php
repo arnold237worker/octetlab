@@ -38,7 +38,7 @@ OCTETLAB - @lang('file.packages')
                 
             
             <div id="prices-content">
-                <div id="monthly" class="active prices-content-area animated">
+                <div id="monthly" class="active prices-content-area">
                     <div class="row">
                         @foreach ($packages as $item)
                         <div class="col-lg-4 col-sm-6">
